@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f6bf4">
+  <title>Áreas comuns • CondoFlow</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/telas/areas.js"></script>
+</head>
+<body class="static-app" data-screen="areas">
+  <aside class="side-panel">
+    <a class="brand" href="/">Condo<span>Flow</span></a>
+    <p class="side-caption">MENU DO CONDOMÍNIO</p>
+    <nav class="side-nav">
+        <a class="side-link" data-resource="condominios" href="/telas/condominios.html">Condomínios</a>
+        <a class="side-link" data-resource="unidades" href="/telas/unidades.html">Unidades</a>
+        <a class="side-link" data-resource="moradores" href="/telas/moradores.html">Moradores</a>
+        <a class="side-link" data-resource="comunicados" href="/telas/comunicados.html">Comunicados</a>
+        <a class="side-link" data-resource="visitantes" href="/telas/visitantes.html">Visitantes</a>
+        <a class="side-link" data-resource="encomendas" href="/telas/encomendas.html">Encomendas</a>
+        <a class="side-link" data-resource="areas" href="/telas/areas.html">Áreas comuns</a>
+        <a class="side-link" data-resource="reservas" href="/telas/reservas.html">Reservas</a>
+        <a class="side-link" data-resource="chamados" href="/telas/chamados.html">Chamados</a>
+        <a class="side-link" data-resource="prestadores" href="/telas/prestadores.html">Prestadores</a>
+    </nav>
+    <button class="side-link logout-link" id="logout" type="button">Sair da conta</button>
+  </aside>
+  <header class="app-topbar">
+    <div><span class="eyebrow">CONDOFLOW / MÓDULO</span><h1>Áreas comuns</h1></div>
+    <div class="signed-user"><b id="user-name">Carregando...</b><span id="user-role"></span></div>
+  </header>
+  <main class="screen-content">
+    <section class="screen-intro">
+      <div><h2>Áreas comuns</h2><p>Espaços para aproveitar o melhor da vida em condomínio.</p></div>
+      <button class="button" type="button" data-create>Cadastrar área comum</button>
+    </section>
+    <div id="message" class="message" role="status" hidden></div>
+    <section class="data-panel">
+      <div class="table-tools"><label class="search-field"><span class="sr-only">Buscar</span><input id="search" type="search" placeholder="Buscar em áreas comuns..."></label><span id="record-count" class="record-count">Carregando registros...</span></div>
+      <div class="table-scroll"><table><thead><tr><th>Nome do espaço</th><th>Condomínio</th><th>Capacidade</th><th>Taxa de uso (R$)</th><th>Disponibilidade</th><th>Ações</th></tr></thead><tbody id="records"><tr><td class="empty-cell" colspan="6">Carregando...</td></tr></tbody></table></div>
+    </section>
+  </main>
+  <dialog id="record-dialog" class="record-dialog">
+    <form id="record-form">
+      <div class="dialog-heading"><div><span class="eyebrow">CONDOFLOW / FORMULÁRIO</span><h2 id="dialog-title">Cadastrar área comum</h2></div><button class="close-button" type="button" data-close aria-label="Fechar">×</button></div>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <div class="form-grid"><label class="field"><span>Condomínio *</span><select id="field-condominio_id" name="condominio_id" data-field required><option value="">Selecione</option></select></label>
+        <label class="field"><span>Nome do espaço *</span><input id="field-nome" name="nome" data-field required type="text" maxlength="180"></label>
+        <label class="field"><span>Capacidade *</span><input id="field-capacidade" name="capacidade" data-field required type="number" min="1" max="10000" step="1"></label>
+        <label class="field"><span>Taxa de uso (R$) *</span><input id="field-taxa" name="taxa" data-field required type="number" min="0" max="100000" step="0.01" data-default="0"></label>
+        <label class="field"><span>Disponibilidade *</span><select id="field-status" name="status" data-default="disponivel" data-field required><option value="">Selecione</option><option value="disponivel">Disponível</option><option value="manutencao">Em manutenção</option></select></label></div>
+      <div class="dialog-buttons"><button class="button button-light" type="button" data-cancel>Cancelar</button><button class="button" type="submit">Salvar área comum</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

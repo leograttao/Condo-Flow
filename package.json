@@ -1,0 +1,22 @@
+{
+  "name": "condoflow-academico",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CondoFlow: 10 CRUDs, 4 perfis, MySQL e padrões de projeto",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file=.env backend/server.js",
+    "dev": "node --env-file=.env --watch backend/server.js",
+    "db:setup": "node --env-file=.env backend/scripts/setup-db.js",
+    "test": "node --test backend/tests/*.test.js",
+    "test:integration": "node --env-file=.env --test backend/tests/integration/*.test.js"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "mysql2": "3.24.6",
+    "qrcode": "1.5.4"
+  }
+}

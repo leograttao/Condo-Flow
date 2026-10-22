@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f6bf4">
+  <title>Moradores • CondoFlow</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/telas/moradores.js"></script>
+</head>
+<body class="static-app" data-screen="moradores">
+  <aside class="side-panel">
+    <a class="brand" href="/">Condo<span>Flow</span></a>
+    <p class="side-caption">MENU DO CONDOMÍNIO</p>
+    <nav class="side-nav">
+        <a class="side-link" data-resource="condominios" href="/telas/condominios.html">Condomínios</a>
+        <a class="side-link" data-resource="unidades" href="/telas/unidades.html">Unidades</a>
+        <a class="side-link" data-resource="moradores" href="/telas/moradores.html">Moradores</a>
+        <a class="side-link" data-resource="comunicados" href="/telas/comunicados.html">Comunicados</a>
+        <a class="side-link" data-resource="visitantes" href="/telas/visitantes.html">Visitantes</a>
+        <a class="side-link" data-resource="encomendas" href="/telas/encomendas.html">Encomendas</a>
+        <a class="side-link" data-resource="areas" href="/telas/areas.html">Áreas comuns</a>
+        <a class="side-link" data-resource="reservas" href="/telas/reservas.html">Reservas</a>
+        <a class="side-link" data-resource="chamados" href="/telas/chamados.html">Chamados</a>
+        <a class="side-link" data-resource="prestadores" href="/telas/prestadores.html">Prestadores</a>
+    </nav>
+    <button class="side-link logout-link" id="logout" type="button">Sair da conta</button>
+  </aside>
+  <header class="app-topbar">
+    <div><span class="eyebrow">CONDOFLOW / MÓDULO</span><h1>Moradores</h1></div>
+    <div class="signed-user"><b id="user-name">Carregando...</b><span id="user-role"></span></div>
+  </header>
+  <main class="screen-content">
+    <section class="screen-intro">
+      <div><h2>Moradores</h2><p>Cadastros, contatos e acesso de quem mora aqui.</p></div>
+      <button class="button" type="button" data-create>Cadastrar morador</button>
+    </section>
+    <div id="message" class="message" role="status" hidden></div>
+    <section class="data-panel">
+      <div class="table-tools"><label class="search-field"><span class="sr-only">Buscar</span><input id="search" type="search" placeholder="Buscar em moradores..."></label><span id="record-count" class="record-count">Carregando registros...</span></div>
+      <div class="table-scroll"><table><thead><tr><th>Nome completo</th><th>Unidade</th><th>E-mail</th><th>Telefone</th><th>Ações</th></tr></thead><tbody id="records"><tr><td class="empty-cell" colspan="5">Carregando...</td></tr></tbody></table></div>
+    </section>
+  </main>
+  <dialog id="record-dialog" class="record-dialog">
+    <form id="record-form">
+      <div class="dialog-heading"><div><span class="eyebrow">CONDOFLOW / FORMULÁRIO</span><h2 id="dialog-title">Cadastrar morador</h2></div><button class="close-button" type="button" data-close aria-label="Fechar">×</button></div>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <div class="form-grid"><label class="field"><span>Unidade *</span><select id="field-unidade_id" name="unidade_id" data-field required><option value="">Selecione</option></select></label>
+        <label class="field"><span>Nome completo *</span><input id="field-nome" name="nome" data-field required type="text" maxlength="180"></label>
+        <label class="field"><span>E-mail *</span><input id="field-email" name="email" data-field required type="email" maxlength="180"></label>
+        <label class="field"><span>Telefone *</span><input id="field-telefone" name="telefone" data-field required type="text" maxlength="180"></label><label class="field field-wide"><span>Senha inicial *</span><input name="senha" data-field type="password" minlength="8" maxlength="128" autocomplete="new-password" required></label></div>
+      <div class="dialog-buttons"><button class="button button-light" type="button" data-cancel>Cancelar</button><button class="button" type="submit">Salvar morador</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
